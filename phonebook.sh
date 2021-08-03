@@ -30,14 +30,29 @@ elif [ "$1" = "list" ]; then
   fi
 
 elif [ "$1" = "lookup" ]; then
-  # display all phone numbers associated with given name
-  while read line; do
-    echo
-  done < $PHONEBOOK_ENTRIES
+  # empty phonebook
+  if [ ! -e $PHONEBOOK_ENTRIES ] || [ ! -s $PHONEBOOK_ENTRIES ]; then
+    echo "phonebook is empty"
+  else
+    # display all phone numbers associated with given name
+    while read line; do
+      words=($line)
+
+      # check if name in file matches given name
+      if [ "${words[0]}" = "$2" ] && [ "${words[1]}" = "$3" ]; then
+        echo "${words[2]}"
+      fi
+    done < $PHONEBOOK_ENTRIES
+  fi
 
 elif [ "$1" = "remove" ]; then
-  # delete all entries associated with given name
-  echo "remove"
+  # empty phonebook
+  if [ ! -e $PHONEBOOK_ENTRIES ] || [ ! -s $PHONEBOOK_ENTRIES ]; then
+    echo "phonebook is empty"
+  else
+    # delete all entries associated with given name
+    sed -i "/$2 $3/d" $PHONEBOOK_ENTRIES
+  fi
 
 elif [ "$1" = "clear" ]; then
   # delete the entire phonebook

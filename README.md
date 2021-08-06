@@ -3,11 +3,11 @@ This phonebook was created during Execute Big's Tech Roulette Week 5. It uses Ba
 
 ## Features
 ```
-./phonebook.sh new <name> <number>   # adds an entry to the phonebook
-./phonebook.sh list                  # displays every entry in the phonebook
-./phonebook.sh clear                 # deletes the entire phonebook 
-./phonebook.sh remove <name>         # deletes all entries associated with that name
-./phonebook.sh lookup <name>         # displays all phone numbers associated with that name
+./phonebook.sh new <first name> <last name> <number>   # adds an entry to the phonebook
+./phonebook.sh list                                    # displays every entry in the phonebook
+./phonebook.sh clear                                   # deletes the entire phonebook 
+./phonebook.sh remove <first name> <last name>         # deletes all entries associated with that name
+./phonebook.sh lookup <first name> <last name>         # displays all phone numbers associated with that name
 ```
 
 ## Execute Big's Tech Roulette Week 5
